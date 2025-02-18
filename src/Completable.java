@@ -1,7 +1,7 @@
-// the is the completable interface
+// this is the completable interface
 
-public interface Completable {
-    public void complete();
-    public boolean isComplete();
+interface Completable {
+    void complete();
+    boolean isComplete();
 }
 

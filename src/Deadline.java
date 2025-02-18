@@ -1,22 +1,15 @@
-public class Deadline extends Event implements Completable{
+import java.time.LocalDateTime;
 
-    //holds a Boolean representing whether the task this deadline tracks is complete
-    private boolean complete;
+public class Deadline extends Event {
 
-    // Constuctor
-    public Deadline(String name, LocalDateTime endDateTime) {
-        setName(name);
-        setDateTime(endDateTime);
+    // Constructor for Deadline
+    public Deadline(String name, LocalDateTime dateTime) {
+        super(name, dateTime);  // Call the superclass constructor
     }
 
-    //sets the complete boolean to true
-    public void complete() {
-        this.complete = true;
+    // Implementing the abstract method to return the name
+    @Override
+    public String getName() {
+        return super.getName();  // Use the inherited getter from Event
     }
-
-    // returns complete boolean
-    public boolean isComplete() {
-        return this.complete;
-    }
-
 }
