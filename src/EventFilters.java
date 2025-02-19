@@ -1,31 +1,35 @@
-/*Event Filters provides a set of filters*/
+// Event FIlters class
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
-//EventFilter Class
 public class EventFilters {
 
-    //Maps Filters to the events
+    // Returns a map of event filters based on type or completion status
     public Map<String, Predicate<Event>> getEventFilters() {
         Map<String, Predicate<Event>> filters = new HashMap<String, Predicate<Event>>();
-        final int NUMBER_OF_FILTERS = 3;
+        final int NUMBER_OF_FILTERS = 3;  // Number of filters
+
+        // Adding filters to the map
         filters.put("Filter Completed Events", getCompleteFilter());
         filters.put("Filter Deadlines", getDeadlineFilter());
         filters.put("Filter Meeting", getMeetingFilter());
+
         return filters;
     }
 
-    //Completed events
+    // Filter for completed events
     public Predicate<Event> getCompleteFilter() {
-        return (event) -> {return ((Completable)event).isComplete();};
+        return (event) -> ((Completable)event).isComplete();
     }
-    //Deadline events
+
+    // Filter for Deadline events
     public Predicate<Event> getDeadlineFilter() {
-        return (event) -> {return event instanceof Deadline;};
+        return (event) -> event instanceof Deadline;
     }
-    //Meeting Events
+
+    // Filter for Meeting events
     public Predicate<Event> getMeetingFilter() {
-        return (event) -> {return event instanceof Meeting;};
+        return (event) -> event instanceof Meeting;
     }
 }

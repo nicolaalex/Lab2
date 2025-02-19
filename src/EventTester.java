@@ -1,6 +1,4 @@
-// Code provided by Baarsch
-
-// EventTesterClass
+// Event tester class that was provided
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -8,6 +6,7 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class EventTester {
+
     static LocalDateTime deadline = LocalDateTime.of(2024, 12, 7, 17, 0);
     static String lastDeadlineName = "Last Deadline";
     static String lastDeadlineNameAlt = "Final Deadline";

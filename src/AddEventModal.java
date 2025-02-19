@@ -1,4 +1,4 @@
-/*EventModal class creates panel to collect information for the new event*/
+// EventModal class creates panel to get information for new event
 
 
 import javax.swing.*;
@@ -50,25 +50,25 @@ public class AddEventModal extends JDialog {
 
 
     private JPanel addEventPanel() {
-        //init attribute
+        //initialize attribute
         attributes = new ArrayList<>();
 
-        //Setup panels
+        // setup panels
         JPanel panel = new JPanel();
         infoCollectorPanel = new JPanel();
         infoCollectorPanel.setPreferredSize(new Dimension(PANEL_WIDTH, INFO_PANEL_HEIGHT));
         infoCollectorPanel.setBackground(Color.LIGHT_GRAY);
 
-        //Setup dropdown box
+        //setup drop down box
         eventTypeComboBox = new JComboBox<>(eventTypes);
         eventTypeComboBox.setFont(new Font("Arial", Font.BOLD, FONT_SIZE));
         eventTypeComboBox.addActionListener(getEventChooser());
 
-        //add panel and dropdown box
+        // add panel and dropdown box
         panel.add(eventTypeComboBox);
         panel.add(infoCollectorPanel);
 
-        //create submit button and connect to actionlistener
+        // create submit button and connect to actionlistener
         JButton addEventButton = new JButton("Submit");
         addEventButton.setFont(new Font("Arial", Font.BOLD, FONT_SIZE));
         addEventButton.addActionListener(getEventCreator());
@@ -78,7 +78,7 @@ public class AddEventModal extends JDialog {
         return panel;
     }
 
-    // Action listeners for select which event
+    // action listeners: select which event
     private ActionListener getEventChooser() {
 
         return e -> {
@@ -87,7 +87,7 @@ public class AddEventModal extends JDialog {
             infoCollectorPanel.removeAll();
 
             switch (eventTypeComboBox.getSelectedIndex()) {
-                //if Event is selected display these contents
+                //if Event is selected display the following
                 case 0: {
                     infoCollectorPanel.add(new JLabel("Please Enter Name and Date")).setPreferredSize(new Dimension(PANEL_WIDTH, TEXT_HEIGHT));
                     attributes.add(new Attribute("Name", new JTextField(NUM_OF_COLUMNS)));
@@ -98,7 +98,7 @@ public class AddEventModal extends JDialog {
                     attributes.add(new Attribute("Minute", new JTextField(NUM_OF_COLUMNS)));
                     break;
                 }
-                //if meeting is selected display these contents
+                //if meeting is selected display the following
                 case 1: {
                     infoCollectorPanel.add(new JLabel(
                             "Please Enter Name, Location, and Dates")).setPreferredSize(new Dimension(PANEL_WIDTH, TEXT_HEIGHT));
@@ -150,7 +150,7 @@ public class AddEventModal extends JDialog {
 
                     break;
                 }
-                //Meeting
+                // meeting
                 case 1: {
                     //start date
                     LocalDateTime newStartDate = LocalDateTime.of(
